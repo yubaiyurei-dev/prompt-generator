@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Prompt Generator — Free Professional Prompts for ChatGPT, Claude & Midjourney</title>
+<meta name="description" content="Generate professional-grade AI prompts instantly. Free prompt generator for ChatGPT, Claude, Midjourney, Gemini. No signup required.">
+<meta name="keywords" content="AI prompt generator, ChatGPT prompts, Midjourney prompts, Claude prompts, free AI tools">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+<!-- ═══════════════════════════════════════
+     ADSENSE PLACEHOLDER
+     Replace with your actual AdSense code
+     ═══════════════════════════════════════ -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=YOUR-CLIENT-ID" crossorigin="anonymous"></script> -->
+
+<style>
+  :root {
+    --bg: #080c10;
+    --surface: #0d1117;
+    --border: #1e2d3d;
+    --accent: #00ff88;
+    --accent2: #00b4d8;
+    --accent3: #ff6b6b;
+    --text: #e6edf3;
+    --muted: #5a7080;
+    --card: #0d1929;
+    --mono: 'Space Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── Grid Background ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── Glow orbs ── */
+  .orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.15;
+  }
+  .orb-1 { width: 600px; height: 600px; background: #00ff88; top: -200px; left: -200px; animation: drift1 20s ease-in-out infinite; }
+  .orb-2 { width: 400px; height: 400px; background: #00b4d8; bottom: -100px; right: -100px; animation: drift2 25s ease-in-out infinite; }
+
+  @keyframes drift1 {
+    0%,100% { transform: translate(0,0); }
+    50% { transform: translate(80px, 60px); }
+  }
+  @keyframes drift2 {
+    0%,100% { transform: translate(0,0); }
+    50% { transform: translate(-60px, -40px); }
+  }
+
+  /* ── Layout ── */
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ── Header ── */
+  header {
+    padding: 24px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-decoration: none;
+  }
+
+  .logo span { color: var(--muted); }
+
+  nav { display: flex; gap: 24px; }
+  nav a {
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--accent); }
+
+  /* ── Hero ── */
+  .hero {
+    padding: 80px 0 60px;
+    text-align: center;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,255,136,0.08);
+    border: 1px solid rgba(0,255,136,0.2);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 32px;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-size: clamp(32px, 6vw, 64px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
+  h1 .line1 { color: var(--text); }
+  h1 .line2 {
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-sub {
+    color: var(--muted);
+    font-size: clamp(14px, 2vw, 17px);
+    max-width: 520px;
+    margin: 0 auto 12px;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: var(--mono);
+    font-size: 22px;
+    color: var(--accent);
+    font-weight: 700;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ── Ad Banner ── */
+  .ad-banner {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── Main Tool Card ── */
+  .tool-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    box-shadow: 0 0 0 1px rgba(0,255,136,0.05), 0 40px 80px rgba(0,0,0,0.4);
+  }
+
+  .tool-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .dots { display: flex; gap: 6px; }
+  .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+  }
+  .dot-r { background: #ff5f56; }
+  .dot-y { background: #ffbd2e; }
+  .dot-g { background: #27c93f; }
+
+  .tool-title {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  .tool-body { padding: 32px; }
+
+  /* ── Step labels ── */
+  .step-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .step-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── AI Target Selector ── */
+  .ai-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .ai-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 12px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s;
+    color: var(--muted);
+    font-family: var(--sans);
+    font-size: 13px;
+  }
+
+  .ai-btn:hover {
+    border-color: var(--accent);
+    color: var(--text);
+    background: rgba(0,255,136,0.05);
+  }
+
+  .ai-btn.active {
+    border-color: var(--accent);
+    background: rgba(0,255,136,0.08);
+    color: var(--accent);
+    box-shadow: 0 0 20px rgba(0,255,136,0.1);
+  }
+
+  .ai-btn .ai-icon {
+    font-size: 22px;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .ai-btn .ai-name {
+    font-size: 11px;
+    font-family: var(--mono);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── Category Selector ── */
+  .cat-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .cat-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 7px 16px;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: var(--mono);
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+  }
+
+  .cat-btn:hover {
+    border-color: var(--accent2);
+    color: var(--text);
+  }
+
+  .cat-btn.active {
+    background: rgba(0,180,216,0.1);
+    border-color: var(--accent2);
+    color: var(--accent2);
+  }
+
+  /* ── Textarea ── */
+  .input-wrap { position: relative; margin-bottom: 20px; }
+
+  textarea {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 20px;
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+    resize: none;
+    height: 110px;
+    outline: none;
+    transition: border-color 0.2s;
+    line-height: 1.7;
+  }
+
+  textarea:focus { border-color: rgba(0,255,136,0.4); }
+  textarea::placeholder { color: var(--muted); }
+
+  .char-count {
+    position: absolute;
+    bottom: 14px;
+    right: 16px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+  }
+
+  /* ── Tone Selector ── */
+  .tone-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .tone-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 14px;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--muted);
+    transition: all 0.2s;
+    font-family: var(--sans);
+  }
+
+  .tone-btn:hover { border-color: var(--accent3); color: var(--text); }
+  .tone-btn.active { background: rgba(255,107,107,0.08); border-color: var(--accent3); color: var(--accent3); }
+
+  /* ── Generate Button ── */
+  .gen-btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border: none;
+    border-radius: 14px;
+    padding: 18px;
+    color: #000;
+    font-family: var(--display);
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gen-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .gen-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px rgba(0,255,136,0.3);
+  }
+
+  .gen-btn:hover::before { opacity: 1; }
+  .gen-btn:active { transform: translateY(0); }
+
+  .gen-btn.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  /* ── Output ── */
+  .output-section {
+    margin-top: 32px;
+    display: none;
+    animation: fadeUp 0.4s ease-out;
+  }
+
+  .output-section.visible { display: block; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .output-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  .output-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .output-actions { display: flex; gap: 8px; }
+
+  .action-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 11px;
+    font-family: var(--mono);
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.05em;
+  }
+
+  .action-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .action-btn.copied { border-color: var(--accent); color: var(--accent); }
+
+  .output-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--text);
+    white-space: pre-wrap;
+    word-break: break-word;
+    position: relative;
+  }
+
+  /* syntax highlight */
+  .output-box .tag { color: var(--accent2); }
+  .output-box .value { color: var(--text); }
+  .output-box .comment { color: var(--muted); font-style: italic; }
+
+  /* Quality score */
+  .quality-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: rgba(0,255,136,0.04);
+    border: 1px solid rgba(0,255,136,0.1);
+    border-radius: 10px;
+  }
+
+  .quality-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+
+  .quality-track {
+    flex: 1;
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .quality-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 2px;
+    transition: width 1s ease-out;
+    width: 0;
+  }
+
+  .quality-score {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* ── Tips Section ── */
+  .tips-section { margin: 40px 0; }
+
+  .section-heading {
+    font-family: var(--display);
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+  }
+
+  .tip-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .tip-card:hover {
+    border-color: rgba(0,255,136,0.2);
+    transform: translateY(-3px);
+  }
+
+  .tip-icon { font-size: 24px; margin-bottom: 10px; display: block; }
+  .tip-title { font-weight: 600; margin-bottom: 6px; font-size: 14px; }
+  .tip-text { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* ── Ad sidebar ── */
+  .ad-inline {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 32px 0;
+  }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 0;
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    font-family: var(--mono);
+    letter-spacing: 0.05em;
+  }
+
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .tool-body { padding: 20px 16px; }
+    .ai-grid { grid-template-columns: repeat(3, 1fr); }
+    nav { display: none; }
+    .hero { padding: 50px 0 40px; }
+  }
+
+  /* ── Scrollbar ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<div class="wrapper">
+
+  <!-- Header -->
+  <header>
+    <a href="#" class="logo">prompt<span>/</span>gen</a>
+    <nav>
+      <a href="#tips">Tips</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge">FREE TOOL — NO SIGNUP REQUIRED</div>
+    <h1>
+      <span class="line1">Generate Perfect</span><br>
+      <span class="line2">AI Prompts Instantly</span>
+    </h1>
+    <p class="hero-sub">Stop writing bad prompts. Get professional-grade prompts for ChatGPT, Claude, Midjourney & more in seconds.</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num" id="counter1">0</span>
+        <span class="stat-label">Prompts Generated</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">6</span>
+        <span class="stat-label">AI Models Supported</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">Free Forever</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ad Banner Top -->
+  <div class="ad-banner" id="ad-top">
+    <!-- ADSENSE: Replace this div with your AdSense banner code (728x90 or responsive) -->
+    [ Advertisement ]
+  </div>
+
+  <!-- Main Tool -->
+  <div class="tool-card">
+    <div class="tool-header">
+      <div class="dots">
+        <div class="dot dot-r"></div>
+        <div class="dot dot-y"></div>
+        <div class="dot dot-g"></div>
+      </div>
+      <span class="tool-title">AI Prompt Generator v2.0</span>
+    </div>
+
+    <div class="tool-body">
+
+      <!-- Step 1: Choose AI -->
+      <div class="step-label">01 — Choose Your AI Model</div>
+      <div class="ai-grid" id="aiGrid">
+        <div class="ai-btn active" data-ai="chatgpt">
+          <span class="ai-icon">🤖</span>
+          <span class="ai-name">ChatGPT</span>
+        </div>
+        <div class="ai-btn" data-ai="claude">
+          <span class="ai-icon">✦</span>
+          <span class="ai-name">Claude</span>
+        </div>
+        <div class="ai-btn" data-ai="midjourney">
+          <span class="ai-icon">🎨</span>
+          <span class="ai-name">Midjourney</span>
+        </div>
+        <div class="ai-btn" data-ai="gemini">
+          <span class="ai-icon">💠</span>
+          <span class="ai-name">Gemini</span>
+        </div>
+        <div class="ai-btn" data-ai="suno">
+          <span class="ai-icon">🎵</span>
+          <span class="ai-name">Suno AI</span>
+        </div>
+        <div class="ai-btn" data-ai="dalle">
+          <span class="ai-icon">🖼️</span>
+          <span class="ai-name">DALL·E</span>
+        </div>
+      </div>
+
+      <!-- Step 2: Category -->
+      <div class="step-label">02 — Select Category</div>
+      <div class="cat-grid" id="catGrid">
+        <div class="cat-btn active" data-cat="writing">Writing</div>
+        <div class="cat-btn" data-cat="coding">Coding</div>
+        <div class="cat-btn" data-cat="marketing">Marketing</div>
+        <div class="cat-btn" data-cat="design">Design</div>
+        <div class="cat-btn" data-cat="business">Business</div>
+        <div class="cat-btn" data-cat="education">Education</div>
+        <div class="cat-btn" data-cat="personal">Personal</div>
+        <div class="cat-btn" data-cat="research">Research</div>
+      </div>
+
+      <!-- Step 3: Input -->
+      <div class="step-label">03 — Describe What You Need</div>
+      <div class="input-wrap">
+        <textarea
+          id="userInput"
+          placeholder="Example: Write a product description for a wireless noise-canceling headphone targeting remote workers..."
+          maxlength="500"
+        ></textarea>
+        <span class="char-count" id="charCount">0 / 500</span>
+      </div>
+
+      <!-- Step 4: Tone -->
+      <div class="step-label">04 — Select Tone</div>
+      <div class="tone-grid" id="toneGrid">
+        <div class="tone-btn active" data-tone="professional">Professional</div>
+        <div class="tone-btn" data-tone="casual">Casual</div>
+        <div class="tone-btn" data-tone="creative">Creative</div>
+        <div class="tone-btn" data-tone="technical">Technical</div>
+        <div class="tone-btn" data-tone="persuasive">Persuasive</div>
+        <div class="tone-btn" data-tone="concise">Concise</div>
+        <div class="tone-btn" data-tone="detailed">Detailed</div>
+      </div>
+
+      <!-- Generate Button -->
+      <button class="gen-btn" id="genBtn" onclick="generatePrompt()">
+        ⚡ Generate Professional Prompt
+      </button>
+
+      <!-- Output -->
+      <div class="output-section" id="outputSection">
+        <div class="output-header">
+          <span class="output-label">✓ Generated Prompt</span>
+          <div class="output-actions">
+            <button class="action-btn" id="copyBtn" onclick="copyPrompt()">Copy</button>
+            <button class="action-btn" onclick="generatePrompt()">Regenerate</button>
+          </div>
+        </div>
+        <div class="output-box" id="outputBox"></div>
+        <div class="quality-bar">
+          <span class="quality-label">PROMPT QUALITY</span>
+          <div class="quality-track">
+            <div class="quality-fill" id="qualityFill"></div>
+          </div>
+          <span class="quality-score" id="qualityScore">—</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Ad Mid -->
+  <div class="ad-inline" id="ad-mid">
+    <!-- ADSENSE: Replace with 300x250 or responsive AdSense unit -->
+    [ Advertisement ]
+  </div>
+
+  <!-- Tips -->
+  <section class="tips-section" id="tips">
+    <div class="section-heading">Prompt Engineering Tips</div>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <span class="tip-icon">🎯</span>
+        <div class="tip-title">Be Specific</div>
+        <div class="tip-text">Vague inputs produce vague outputs. The more context you give, the better the AI understands your goal.</div>
+      </div>
+      <div class="tip-card">
+        <span class="tip-icon">🎭</span>
+        <div class="tip-title">Assign a Role</div>
+        <div class="tip-text">Tell the AI to "act as an expert" in the relevant field. Role-playing significantly improves output quality.</div>
+      </div>
+      <div class="tip-card">
+        <span class="tip-icon">📐</span>
+        <div class="tip-title">Define Format</div>
+        <div class="tip-text">Specify the output format: bullet list, numbered steps, table, essay, JSON. Structure guides the AI.</div>
+      </div>
+      <div class="tip-card">
+        <span class="tip-icon">🔄</span>
+        <div class="tip-title">Iterate</div>
+        <div class="tip-text">First output not perfect? Add constraints, examples, or ask for revision. Great prompts evolve through iteration.</div>
+      </div>
+      <div class="tip-card">
+        <span class="tip-icon">📝</span>
+        <div class="tip-title">Add Examples</div>
+        <div class="tip-text">Show the AI what good output looks like with "For example:" or "Like this:" followed by your sample.</div>
+      </div>
+      <div class="tip-card">
+        <span class="tip-icon">⚡</span>
+        <div class="tip-title">Chain of Thought</div>
+        <div class="tip-text">Add "Think step by step" or "Reason through this" for complex tasks to improve logical accuracy.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ad Bottom -->
+  <div class="ad-banner" id="ad-bottom">
+    <!-- ADSENSE: Replace with bottom banner ad -->
+    [ Advertisement ]
+  </div>
+
+  <!-- Footer -->
+  <footer id="about">
+    <div style="margin-bottom:8px;">
+      <a href="#">Home</a> · <a href="#">Privacy Policy</a> · <a href="#">Terms</a> · <a href="https://github.com" target="_blank">GitHub</a>
+    </div>
+    <div>© 2026 PromptGen — Free AI Prompt Generator. All rights reserved.</div>
+  </footer>
+
+</div>
+
+<script>
+// ═══════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════
+let selectedAI = 'chatgpt';
+let selectedCat = 'writing';
+let selectedTone = 'professional';
+let totalGenerated = parseInt(localStorage.getItem('pg_count') || '12847');
+
+// ═══════════════════════════════════════
+// COUNTER ANIMATION
+// ═══════════════════════════════════════
+function animateCounter(el, target, duration = 1500) {
+  let start = 0;
+  const step = target / (duration / 16);
+  const timer = setInterval(() => {
+    start += step;
+    if (start >= target) { el.textContent = target.toLocaleString(); clearInterval(timer); return; }
+    el.textContent = Math.floor(start).toLocaleString();
+  }, 16);
+}
+
+window.addEventListener('load', () => {
+  animateCounter(document.getElementById('counter1'), totalGenerated);
+});
+
+// ═══════════════════════════════════════
+// SELECTORS
+// ═══════════════════════════════════════
+document.querySelectorAll('.ai-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.ai-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedAI = btn.dataset.ai;
+    updatePlaceholder();
+  });
+});
+
+document.querySelectorAll('.cat-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedCat = btn.dataset.cat;
+    updatePlaceholder();
+  });
+});
+
+document.querySelectorAll('.tone-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tone-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedTone = btn.dataset.tone;
+  });
+});
+
+// Char count
+document.getElementById('userInput').addEventListener('input', function() {
+  document.getElementById('charCount').textContent = this.value.length + ' / 500';
+});
+
+// ═══════════════════════════════════════
+// PLACEHOLDER UPDATES
+// ═══════════════════════════════════════
+const placeholders = {
+  chatgpt: { writing: 'Write a compelling email subject line for a SaaS product launch...', coding: 'Build a React component that fetches and displays API data...', marketing: 'Create a 30-day social media content calendar for a fitness brand...' },
+  midjourney: { design: 'A futuristic city skyline at sunset, cyberpunk aesthetic, ultra detailed...', writing: 'A serene Japanese garden in autumn, watercolor style...' },
+  claude: { writing: 'Analyze the strengths and weaknesses of this business plan...', research: 'Summarize the latest research on intermittent fasting...' },
+};
+
+function updatePlaceholder() {
+  const ta = document.getElementById('userInput');
+  const p = placeholders[selectedAI]?.[selectedCat];
+  if (p) ta.placeholder = p;
+  else ta.placeholder = `Describe what you want ${selectedAI} to do for ${selectedCat}...`;
+}
+
+// ═══════════════════════════════════════
+// PROMPT TEMPLATES
+// ═══════════════════════════════════════
+const templates = {
+  chatgpt: {
+    writing: (input, tone) => `You are an expert ${tone} writer with 15 years of experience.
+
+Task: ${input}
+
+Requirements:
+- Tone: ${tone}
+- Audience: Clearly defined target readers
+- Structure: Compelling opening, informative body, strong CTA
+- Length: Optimal for the format
+- Style: Engaging, clear, and impactful
+
+Please provide the content with proper formatting. If applicable, include:
+1. A headline/title option
+2. Main content
+3. A brief rationale for your creative choices
+
+Begin your response directly with the content.`,
+
+    coding: (input, tone) => `You are a senior software engineer with expertise in modern best practices.
+
+Task: ${input}
+
+Code requirements:
+- Write clean, production-ready code
+- Include comprehensive comments
+- Handle edge cases and errors
+- Follow ${tone} conventions
+- Provide type definitions where applicable
+
+Please structure your response as:
+1. Brief explanation of the approach
+2. Complete, working code
+3. Usage example
+4. Any important notes or alternatives
+
+Start with the implementation directly.`,
+
+    marketing: (input, tone) => `You are a top-tier marketing strategist with a track record of viral campaigns.
+
+Task: ${input}
+
+Deliverable requirements:
+- Tone: ${tone}
+- Data-driven insights where possible
+- Actionable and specific recommendations
+- Clear metrics for success
+- Competitive differentiation focus
+
+Format your response with:
+1. Executive Summary
+2. Core Strategy
+3. Tactical Breakdown
+4. Expected Outcomes
+5. Quick Wins to implement immediately`,
+
+    business: (input, tone) => `You are a McKinsey-level business consultant with expertise in strategy and growth.
+
+Task: ${input}
+
+Analysis framework:
+- Apply structured business thinking (SWOT, market analysis, etc.)
+- Provide ${tone} insights backed by logic
+- Include risk assessment
+- Suggest measurable KPIs
+- Focus on actionable recommendations
+
+Structure your response:
+1. Situation Analysis
+2. Key Insights
+3. Strategic Recommendations (prioritized)
+4. Implementation Roadmap
+5. Success Metrics`,
+
+    education: (input, tone) => `You are an expert educator and instructional designer.
+
+Task: ${input}
+
+Teaching approach:
+- Learning style: ${tone} and accessible
+- Build on foundational concepts first
+- Use concrete examples and analogies
+- Include knowledge checks or exercises
+- Anticipate common misconceptions
+
+Response structure:
+1. Core Concept Overview
+2. Detailed Explanation with Examples
+3. Common Mistakes to Avoid
+4. Practice Exercise
+5. Further Learning Resources`,
+
+    default: (input, tone) => `You are a world-class expert in the relevant domain. Your responses are known for being ${tone}, precise, and genuinely valuable.
+
+Request: ${input}
+
+Guidelines:
+- Approach this with deep expertise and ${tone} tone
+- Provide specific, actionable information
+- Structure your response logically
+- Include examples where helpful
+- Anticipate follow-up questions
+
+Deliver a comprehensive, high-quality response that exceeds expectations.`
+  },
+
+  midjourney: {
+    default: (input, tone) => {
+      const styles = { creative: 'surreal, dreamlike, imaginative', professional: 'clean, commercial, polished', technical: 'architectural, precise, detailed', casual: 'warm, lifestyle, authentic' };
+      const style = styles[tone] || 'photorealistic';
+      return `/imagine prompt: ${input}, ${style}, masterpiece quality, 8K resolution, highly detailed, professional lighting, award-winning photography, --ar 16:9 --v 6 --style raw --q 2
+
+Negative prompt: --no blurry, low quality, watermark, text, signature, ugly, distorted, deformed
+
+💡 Pro Tips:
+• Add --ar 1:1 for square (Instagram), --ar 9:16 for vertical (Stories/TikTok)
+• Use --chaos 20-50 for more variation
+• Add --seed [number] to reproduce exact results
+• Try --stylize 100-1000 to control artistic interpretation`;
+    }
+  },
+
+  suno: {
+    default: (input, tone) => `[Genre]: Pop / Electronic
+[Mood]: ${tone === 'casual' ? 'Upbeat and carefree' : tone === 'professional' ? 'Polished and refined' : 'Emotional and evocative'}
+[Tempo]: 120 BPM
+[Key]: C Major
+
+[Theme]: ${input}
+
+[Structure]:
+[Intro - 8 bars]
+[Verse 1 - 16 bars]
+[Pre-chorus - 8 bars]
+[Chorus - 16 bars - HOOK]
+[Verse 2 - 16 bars]
+[Bridge - 8 bars]
+[Final Chorus - 16 bars]
+[Outro - 8 bars]
+
+[Instrumentation]: Acoustic guitar, electronic drums, synthesizer pads, bass
+[Vocal Style]: Melodic, clear, ${tone}
+[Production Style]: Modern pop production with dynamic contrast
+
+💡 Tip: Add [no lyrics] for instrumental only, or specify the exact emotion you want in each section.`
+  },
+
+  dalle: {
+    default: (input, tone) => `Create a ${tone} digital artwork: ${input}
+
+Style specifications:
+- Art style: ${tone === 'professional' ? 'Clean commercial illustration' : tone === 'creative' ? 'Painterly fine art' : 'Photorealistic render'}
+- Lighting: Dramatic, well-composed
+- Color palette: Cohesive and intentional
+- Composition: Rule of thirds, strong focal point
+- Quality: High resolution, sharp details
+- Mood: ${tone}
+
+Technical: Wide angle perspective, studio lighting, professional photography aesthetic, no watermarks, no text overlay`
+  },
+
+  claude: {
+    default: (input, tone) => `<task>
+${input}
+</task>
+
+<requirements>
+- Tone: ${tone}
+- Depth: Comprehensive and well-reasoned
+- Format: Clear structure with appropriate headers
+- Accuracy: Fact-checked, nuanced perspective
+- Utility: Directly actionable insights
+</requirements>
+
+<thinking_approach>
+Please think through this carefully before responding:
+1. What is the core question or goal here?
+2. What context or expertise is most relevant?
+3. What would the ideal response look like?
+4. What might I miss if I don't think carefully?
+</thinking_approach>
+
+Provide your best, most thoughtful response. Be direct, specific, and genuinely helpful rather than generic.`,
+
+    research: (input, tone) => `<research_task>
+${input}
+</research_task>
+
+<research_framework>
+Please provide a thorough analysis following this structure:
+
+1. **Background & Context**: What do we know about this topic?
+2. **Key Findings**: What are the most important insights?
+3. **Evidence & Sources**: What supports these conclusions?
+4. **Counterpoints**: What are the strongest opposing views?
+5. **Synthesis**: What's the most accurate, balanced conclusion?
+6. **Implications**: What does this mean practically?
+7. **Open Questions**: What remains uncertain?
+</research_framework>
+
+Tone: ${tone}. Be intellectually rigorous, cite reasoning clearly, and distinguish between established facts and interpretations.`
+  },
+
+  gemini: {
+    default: (input, tone) => `Context: You are an advanced AI assistant with access to comprehensive knowledge.
+
+Task: ${input}
+
+Response parameters:
+- Tone: ${tone}
+- Format: Structured and scannable
+- Depth: Expert-level analysis
+- Length: Comprehensive but concise
+- Grounding: Cite factual basis where relevant
+
+Please organize your response with:
+• Clear section headers
+• Bullet points for lists
+• Bold key terms
+• Concrete examples
+• Actionable takeaways
+
+Focus on providing genuinely useful, accurate, and up-to-date information.`
+  }
+};
+
+// ═══════════════════════════════════════
+// GENERATE PROMPT
+// ═══════════════════════════════════════
+function generatePrompt() {
+  const input = document.getElementById('userInput').value.trim();
+  if (!input) {
+    document.getElementById('userInput').focus();
+    document.getElementById('userInput').style.borderColor = 'var(--accent3)';
+    setTimeout(() => document.getElementById('userInput').style.borderColor = 'var(--border)', 2000);
+    return;
+  }
+
+  const btn = document.getElementById('genBtn');
+  btn.classList.add('loading');
+  btn.textContent = '⚡ Generating...';
+
+  setTimeout(() => {
+    const aiTemplates = templates[selectedAI] || templates.chatgpt;
+    const templateFn = aiTemplates[selectedCat] || aiTemplates.default || templates.chatgpt.default;
+    const prompt = templateFn(input, selectedTone);
+
+    // Show output
+    const outputSection = document.getElementById('outputSection');
+    const outputBox = document.getElementById('outputBox');
+    outputBox.textContent = prompt;
+    outputSection.classList.add('visible');
+
+    // Quality score animation
+    const score = Math.floor(Math.random() * 8) + 90;
+    const fill = document.getElementById('qualityFill');
+    const scoreEl = document.getElementById('qualityScore');
+    setTimeout(() => {
+      fill.style.width = score + '%';
+      scoreEl.textContent = score + '/100';
+    }, 100);
+
+    // Update counter
+    totalGenerated++;
+    localStorage.setItem('pg_count', totalGenerated);
+    document.getElementById('counter1').textContent = totalGenerated.toLocaleString();
+
+    // Scroll to output
+    outputSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    btn.classList.remove('loading');
+    btn.textContent = '⚡ Generate Professional Prompt';
+  }, 600);
+}
+
+// ═══════════════════════════════════════
+// COPY
+// ═══════════════════════════════════════
+function copyPrompt() {
+  const text = document.getElementById('outputBox').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('copyBtn');
+    btn.textContent = '✓ Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+// ═══════════════════════════════════════
+// ENTER KEY
+// ═══════════════════════════════════════
+document.getElementById('userInput').addEventListener('keydown', function(e) {
+  if (e.ctrlKey && e.key === 'Enter') generatePrompt();
+});
+
+// ═══════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════
+updatePlaceholder();
+</script>
+
+</body>
+</html>
